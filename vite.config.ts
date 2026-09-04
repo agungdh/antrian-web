@@ -7,4 +7,10 @@ export default defineConfig({
   resolve: {
     tsconfigPaths: true,
   },
+  server: {
+    // Dev: teruskan /api (REST + SSE) ke BE.
+    proxy: {
+      "/api": "http://localhost:3000",
+    },
+  },
 });

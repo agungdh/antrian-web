@@ -7,7 +7,7 @@
   ],
   "compilerOptions": {
     "lib": ["DOM", "DOM.Iterable", "ES2022"],
-    "types": ["node", "vite/client"],
+    "types": ["node", "vite/client", "bun-types"],
     "target": "ES2022",
     "module": "ES2022",
     "moduleResolution": "bundler",
@@ -15,7 +15,11 @@
     "rootDirs": [".", "./.react-router/types"],
     "paths": {
       "~/*": ["./app/*"],
-      "@/*": ["./app/*"]
+      "@/*": ["./app/*"],
+      // Samakan salinan elysia se-program (FE + BE yang di-import type-only)
+      // supaya constraint Treaty.Create terpenuhi.
+      "elysia": ["./node_modules/elysia"],
+      "elysia/*": ["./node_modules/elysia/*"]
     },
     "esModuleInterop": true,
     "verbatimModuleSyntax": true,
